@@ -1,0 +1,19 @@
+
+Can you please look at these threads and see what is happening and let us know if there are any changes required in MDHT or POST to the thread if it is a user error. 
+
+ 
+
+
+https://groups.google.com/g/edge-test-tool/c/ko0BGUAbRFY 
+b1-Alice newman 1.xml
+
+https://groups.google.com/g/edge-test-tool/c/KheDdkBj5Cc 
+170.315_b1_toc_inp_ccd_r21_svap_uscdiv3_v1.xml
+
+
+blood pressure average
+https://jira.hl7.org/browse/CDA-21379
+https://groups.google.com/g/edge-test-tool/c/yXtbgrPsI4g 
+
+Thanks
+Dragon 
