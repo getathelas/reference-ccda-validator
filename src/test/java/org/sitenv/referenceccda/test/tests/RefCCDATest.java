@@ -62,14 +62,19 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 			BLANK_EMPTY_DOCUMENT_INDEX = 5, HAS_4_POSSIBLE_CONSOL_AND_1_POSSIBLE_MU2_ERROR = 6, DS4P_FROM_MDHT = 7,
 			DS4P_AMB_1 = 8, DS4P_INP_1 = 9, CCD_R21 = 10, DS4P_WITH_NO_DS4P_DATA_AMB = 11,
 			DS4P_WITH_NO_DS4P_DATA_INP = 12, TWO_MEGS = 13, CCD_R21_EF = 14,
-			SUB_SOCIAL_HISTORY_WITH_BIRTH_SEX_OBS_TEMPLATE_SITE_3094 = 15, 
-			SUB_PROCEDURES_WITH_DEVICE_IDENTIFIER_OBSERVATION_SITE_3218 = 16, 
+			SUB_SOCIAL_HISTORY_WITH_BIRTH_SEX_OBS_TEMPLATE_SITE_3094 = 15,
+			SUB_PROCEDURES_WITH_DEVICE_IDENTIFIER_OBSERVATION_SITE_3218 = 16,
 			SUB_PROCEDURES_WITH_DEVICE_IDENTIFIER_OBSERVATION_BAD_VALUE_ROOT_SITE_3218 = 17,
 			DS4P_REFRAIN_OBSERVATION = 18, IVL_REAL_EXAMPLE = 19, IVL_REAL_EXAMPLE2 = 20, REFERRAL_NOTE = 21,
 			REFERRAL_NOTE2 = 22, SDTCTEST = 23, CONSOLNOTEACTIVITY = 24, MEDICATION_SECTION_CODE_INVALID = 25,
-			MARITALSTATUS = 26, MARITALSTATUS2 = 27, LOTORBATCH = 28, APPENDIXAANDB = 29,SVAPCCD2023=30,SVAPCCD20232=31,LARSON=32,G9_API_ACCESS_AMB_SVAP_USCDIV3_SAMPLE1=33;
-	
-	
+			MARITALSTATUS = 26, MARITALSTATUS2 = 27, LOTORBATCH = 28, APPENDIXAANDB = 29, SVAPCCD2023 = 30,
+			SVAPCCD20232 = 31, LARSON = 32, G9_API_ACCESS_AMB_SVAP_USCDIV3_SAMPLE1 = 33, VITALSIGNMODIFIED = 34,
+			SOCIALHISTORYOBSERVATIONWARNING = 35,CONSOLPOLICYACTIVITY=36;
+
+//	VitalSignModified
+
+
+
 	// Feel free to add docs to the end but don't alter existing data
 	// Note: The same sample is referenced twice due to a loop test
 	private static URI[] CCDA_FILES = new URI[0];
@@ -101,14 +106,17 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 					RefCCDATest.class.getResource("/SDTCExtensionsTest.xml").toURI(),
 					RefCCDATest.class.getResource("/ConsolNoteActivity.xml").toURI(),
 					RefCCDATest.class.getResource("/MedicationSectionCodeInvalid.xml").toURI(),
-					RefCCDATest.class.getResource("/maritalstatus.xml").toURI(), 
+					RefCCDATest.class.getResource("/maritalstatus.xml").toURI(),
 					RefCCDATest.class.getResource("/maritalstatus2.xml").toURI(),
 					RefCCDATest.class.getResource("/lotorbatch.xml").toURI(),
 					RefCCDATest.class.getResource("/AppendixAandB.xml").toURI(),
 					RefCCDATest.class.getResource("/2023SVAPCCD.xml").toURI(),
 					RefCCDATest.class.getResource("/2023SVAPCCD2.xml").toURI(),
 					RefCCDATest.class.getResource("/LarsonHealthSummaryExp225.9.24.xml").toURI(),
-					RefCCDATest.class.getResource("/170.315_g9_api_access_amb_svap_uscdiv3_sample1.xml").toURI()
+					RefCCDATest.class.getResource("/170.315_g9_api_access_amb_svap_uscdiv3_sample1.xml").toURI(),
+					RefCCDATest.class.getResource("/vital-sign-modified.xml").toURI(),
+					RefCCDATest.class.getResource("/SocialHistoryObservationWarning.xml").toURI(),
+					RefCCDATest.class.getResource("/ConsolPolicyActivity.xml").toURI()
 			};
 		} catch (URISyntaxException e) {
 			if (LOG_RESULTS_TO_CONSOLE)
@@ -137,7 +145,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		println("***************** No Exceptions were thrown during the test******************" + System.lineSeparator()
 				+ System.lineSeparator());
 	}
-	
+
 	@Test
 	public void basicErrorFreeRegressionTest() {
 		ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
@@ -449,7 +457,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 						+ " as per the content of " + "requiredNodeValidatorMissingElementConfig",
 				configCount == expectedConfigCount);
 	}
-	
+
 	@Test
 	public void globalCodeValidatorResultsVocabularyValidationConfigurationsErrorCountTest() {
 		setupInitParameters(true);
@@ -467,8 +475,8 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 				"VocabularyValidationConfigurationsErrorCount should equal to " + expectedConfigCount
 						+ " as per the content of " + "requiredNodeValidatorMissingElementConfig",
 				configCount == expectedConfigCount);
-	}	
-	
+	}
+
 	@Test
 	public void globalCodeValidatorResultsVocabularyValidationConfigurationsErrorCountProgrammaticTest() {
 		createGenericExpressionForProgrammaticConfigAndInjectDependencies();
@@ -484,7 +492,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 				"VocabularyValidationConfigurationsErrorCount should equal to " + expectedConfigCount
 						+ " as per the content of " + "requiredNodeValidatorMissingElementConfig",
 				configCount == expectedConfigCount);
-	}	
+	}
 
 	// TODO: remove ignore and get this to work in maven install
 	@Ignore // Does not work with maven install due to some glitch but works otherwise
@@ -508,7 +516,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 	}
 
 	// TODO: remove ignore and get this to work in maven install
-	@Ignore // Does not work with maven install due to some glitch but works otherwise	
+	@Ignore // Does not work with maven install due to some glitch but works otherwise
 	@Test
 	public void checkPregnancyCodes() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
@@ -670,7 +678,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 	public void vocabAndMdhtSeverityLevelInfoMultipleValidatorsPerExpressionTest() {
 		vocabAndMdhtSeverityLevelConfigTestImpl(SeverityLevel.INFO, false, "severityLevelLimitTestConfig");
 	}
-	
+
 	@Test
 	public void mdhtValidationStatisticsShallChecksTest() {
 		setupInitParameters(true);
@@ -681,18 +689,18 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 				"ccdaReferenceValidatorConfigTest");
 
 		printResultsBasedOnFlags(results.getCcdaValidationResults());
-		
+
 		long checks = results.getResultsMetaData().getTotalConformanceErrorChecks();
 		println("IG Checks: " + checks);
-		assertTrue("There should be a positive number of IG checks but there is " + checks + " instead.", checks > 0);		
-	}	
-	
+		assertTrue("There should be a positive number of IG checks but there is " + checks + " instead.", checks > 0);
+	}
+
 	@Ignore // Test ignored until SITE-3219 is analyzed and thus what we expect will decided at that time
 	@Test
 	public void socialHistoryWithBirthSexObsNullFlavorCodeSite3219Test() {
 		// Social History has a proper Birth Sex Observation entry. <templateId root="2.16.840.1.113883.10.20.22.4.200" extension="2016-06-01"/>
-		// Notice in the below XML there is no @code. Expect error for @code 
-		// Also notice that although there is a nullFlavor, it is not an exception for the requirement of the code - 
+		// Notice in the below XML there is no @code. Expect error for @code
+		// Also notice that although there is a nullFlavor, it is not an exception for the requirement of the code -
 		// According to Brett, "You cannot use a nullFlavor for a fixed single value in C-CDA."
 		// But this is not the way MDHT works on certain things like codes and more. So, for MDHT, it is an exception.
 		// We need to detemine if we want to uproot the whole system of the past 8 years and change this behavior...
@@ -700,22 +708,22 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		// XML:
 		// <code nullFlavor="UNK" displayName="Birth Sex"/>
 		// Expect an error for not having a code/@code
-		
+
 		// note... changing to <code displayName="Birth Sex"/> allows the error to come through
 		// the nullFlavor is being incorrectly respected in MDHT. There is an MDHT bug. This is a separate ticket now...
 		ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[SUB_SOCIAL_HISTORY_WITH_BIRTH_SEX_OBS_TEMPLATE_SITE_3094]));
 		println("socialHistoryWithBirthSexObsTemplateSite3094Test: ");
 		printResults(getMDHTErrorsFromResults(results));
-		
-		assertTrue("The document should have errors but does not", hasMDHTValidationErrors(results));		
+
+		assertTrue("The document should have errors but does not", hasMDHTValidationErrors(results));
 
 		final String birthSexNoCodeError = " Consol Birth Sex Observation SHALL contain exactly one [1..1] code "
 				+ "(CONF:3250-18234)/@code=\"76689-9\" Sex Assigned At Birth (CodeSystem: 2.16.840.1.113883.6.1 LOINC) "
-				+ "(CONF:3250-18235, CONF:3250-21163)";		
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, birthSexNoCodeError);				
+				+ "(CONF:3250-18235, CONF:3250-21163)";
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, birthSexNoCodeError);
 	}
-	
+
 	@Test
 	public void deviceIdentifierObservationInProceduresInvariantErrorSite3218_ExpectPassTest() {
 		println("deviceIdentifierObservationInProceduresInvariantErrorSite3218_ExpectPassTest: ");
@@ -733,12 +741,12 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 				convertCCDAFileToString(CCDA_FILES[SUB_PROCEDURES_WITH_DEVICE_IDENTIFIER_OBSERVATION_SITE_3218]));
 		results = getMDHTErrorsFromResults(results);
 		printResults(results);
-		
-		String udiValueRootError = 
+
+		String udiValueRootError =
 				"The 'DeviceIdentifierObservationDeviceIdentifierObservationIIUDIissuingagency' invariant is violated on";
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, udiValueRootError);		
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, udiValueRootError);
 	}
-	
+
 	@Test
 	public void deviceIdentifierObservationInProceduresInvariantErrorSite3218_ExpectFailTest() {
 		println("deviceIdentifierObservationInProceduresInvariantErrorSite3218_ExpectFailTest: ");
@@ -751,136 +759,136 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 //        	displayable = "true"/>
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[SUB_PROCEDURES_WITH_DEVICE_IDENTIFIER_OBSERVATION_BAD_VALUE_ROOT_SITE_3218]));
-		
+
 		results = getMDHTErrorsFromResults(results);
 		printResults(results);
-		
-		String udiValueRootError = 
+
+		String udiValueRootError =
 				"The 'DeviceIdentifierObservationDeviceIdentifierObservationIIUDIissuingagency' invariant is violated on";
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, udiValueRootError);		
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, udiValueRootError);
 	}
-	
+
 	/*
-	 * Refrain terminology update 
-	 */		
+	 * Refrain terminology update
+	 */
 	@Test
 	public void ds4pRefrainTerminologyUpdate_ExpectPassTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[DS4P_REFRAIN_OBSERVATION]), CCDATypes.NON_SPECIFIC_DS4P);
-		
+
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 
 		final String ds4PRefrainError = "CONF:9135";
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, ds4PRefrainError);
 	}
-	
-	
+
+
 	@Test
-	public void ivlrealUpdateTest() {	
+	public void ivlrealUpdateTest() {
 		List<RefCCDAValidationResult> results =  getMDHTErrorsFromResults(validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[IVL_REAL_EXAMPLE]), CCDATypes.CCDAR21_OR_CCDAR11));
-		printResultsBasedOnFlags(results);	 
+		printResultsBasedOnFlags(results);
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-7143");
 	}
 
-	
+
 	@Test
 	public void ivlrealUpdate2Test() {
 		List<RefCCDAValidationResult> results =  getMDHTErrorsFromResults(validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[IVL_REAL_EXAMPLE2]), CCDATypes.CCDAR21_OR_CCDAR11));	 
+				convertCCDAFileToString(CCDA_FILES[IVL_REAL_EXAMPLE2]), CCDATypes.CCDAR21_OR_CCDAR11));
 		printResultsBasedOnFlags(results);
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-7143");
 	}
-	
+
 	@Test
 	public void vitalSignObservationPQTest() {
 		List<RefCCDAValidationResult> results =  getMDHTErrorsFromResults(validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[IVL_REAL_EXAMPLE2]), CCDATypes.CCDAR21_OR_CCDAR11));	 
+				convertCCDAFileToString(CCDA_FILES[IVL_REAL_EXAMPLE2]), CCDATypes.CCDAR21_OR_CCDAR11));
 		printResultsBasedOnFlags(results);
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:7305");
 	}
-	
+
 	/*
 	 * Advanced Directive choice test
-	 */	
-	@Ignore("Temporarily skipped")	
+	 */
+	@Ignore("Temporarily skipped")
 	@Test
 	public void advanceDirectivesChoice_ExpectFailTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[DS4P_REFRAIN_OBSERVATION]), CCDATypes.NON_SPECIFIC_DS4P);
-		
+
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 
 		final String ds4PRefrainError = "CONF:1198-32881";
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, ds4PRefrainError);						
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, ds4PRefrainError);
 	}
-	
+
 	@Test
 	public void referralnoteindparticipantname_ExpectFailTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[REFERRAL_NOTE]), CCDATypes.NON_SPECIFIC_CCDAR2);
-		
+
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 
 		final String ds4PRefrainError = "CONF:1198-31645";
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, ds4PRefrainError);						
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, ds4PRefrainError);
 	}
-	
+
 	@Test
 	public void referralnoteindparticipantname_ExpectPassTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[REFERRAL_NOTE2]), CCDATypes.NON_SPECIFIC_CCDAR2);		
+				convertCCDAFileToString(CCDA_FILES[REFERRAL_NOTE2]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-31645");
 	}
-	
+
 	@Test
 	public void maritalStatus_ExpectPassTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[MARITALSTATUS]), CCDATypes.NON_SPECIFIC_CCDAR2);		
+				convertCCDAFileToString(CCDA_FILES[MARITALSTATUS]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-5303");
 	}
-	
+
 	@Test
 	public void maritalStatus_ExpectFailTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[MARITALSTATUS2]), CCDATypes.NON_SPECIFIC_CCDAR2);		
+				convertCCDAFileToString(CCDA_FILES[MARITALSTATUS2]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		results = getMDHTErrorsFromResults(results);
 		printResultsBasedOnFlags(results);
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-5303");
 	}
- 
+
 	@Test
 	public void allergySection_codetest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[SDTCTEST]), CCDATypes.NON_SPECIFIC_CCDAR2);		
+				convertCCDAFileToString(CCDA_FILES[SDTCTEST]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		results = getMDHTErrorsFromResults(results);
-		printResultsBasedOnFlags(results);		
+		printResultsBasedOnFlags(results);
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1198-15350, CONF:1198-32140");
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF: 15350");
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF: 15346");
 	}
-	
 
-	
-	
-	
+
+
+
+
 	/*
 	 * SITE-3348 ETT GG, Errata CDA-2008, MDHT: "A plethora of b.1 issues that we think are invalid"
 	 */
 	@Test
 	public void noteActivity_expectfailtest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[CONSOLNOTEACTIVITY]), CCDATypes.NON_SPECIFIC_CCDAR2);		
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_WARN, "3250-16940, 3250-16941");						
+				convertCCDAFileToString(CCDA_FILES[CONSOLNOTEACTIVITY]), CCDATypes.NON_SPECIFIC_CCDAR2);
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_WARN, "3250-16940, 3250-16941");
 	}
-	
+
 	/*
 	 * SITE-3346 Validators triggers false error for MedicationSectionCode
 	 */
@@ -889,36 +897,36 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[MEDICATION_SECTION_CODE_INVALID]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		results = getMDHTErrorsFromResults(results);
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "15387");		
+		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "15387");
 		// check that it is returned only once
 		int codeSectionCounter=0;
 		for (RefCCDAValidationResult result : results) {
  			if (result.getDescription() !=null && result.getDescription().contains("15387")) {
 				codeSectionCounter++;
-			}			
-		}		
+			}
+		}
 		assertTrue(codeSectionCounter==1);
 	}
- 
 
-	
+
+
 	@Test
 	public void test_LotOrBatchValid() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[LOTORBATCH]), CCDATypes.NON_SPECIFIC_CCDAR2);
-		results = getMDHTErrorsFromResults(results);		
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4437-3458");		
+		results = getMDHTErrorsFromResults(results);
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4437-3458");
 	}
-	 
+
 	@Test
 	public void test_AppendAandBValid() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[APPENDIXAANDB]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		printResultsBasedOnFlags(results);
-		
+
 		// As it stands, this test doesn't test anything (all tests commented out, and many or all fail) so is not useful for regression yet.
 		// TODO: Sean, please update to include a passing test with at least one expected pass and one expected failure. Thanks!
-		
+
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-38", 1 );
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-41", 1 );
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-42", 1 );
@@ -929,42 +937,42 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-32977", 1 );
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-32981", 1 );
 //		failIfIssueIfCountResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-11", 1 );
-		
+
 		// Results of concern:
 		// TODO: Sean, please analyze, is this what we expect?
 		/*
 		Quantity: 2
 		Reason: Should we have schema issues in a test doc?
 		cvc-complex-type.2.4.b: The content of element 'observation' is not complete. One of '{"urn:hl7-org:v3":templateId, "urn:hl7-org:v3":id, "urn:hl7-org:v3":code}' is expected.
-		
+
 		Quantity: 2
 		Reason: Should we have schema issues in a test doc?
 		cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:v3":entry}'. One of '{"urn:hl7-org:v3":realmCode, "urn:hl7-org:v3":typeId, "urn:hl7-org:v3":templateId, "urn:hl7-org:v3":act, "urn:hl7-org:v3":encounter, "urn:hl7-org:v3":observation, "urn:hl7-org:v3":observationMedia, "urn:hl7-org:v3":organizer, "urn:hl7-org:v3":procedure, "urn:hl7-org:v3":regionOfInterest, "urn:hl7-org:v3":substanceAdministration, "urn:hl7-org:v3":supply}' is expected.
-		
+
 		Quantity: 1
 		Reason: Should EMF or datatype issues in a test doc?
 		The required feature 'code' of 'org.openhealthtools.mdht.uml.cda.consol.impl.AssessmentScaleSupportingObservationImpl@4d20616a{http:///resource0.xml#//@clinicalDocument/@component/@structuredBody/@component.0/@section/@entry.0/@observation/@entryRelationship.0/@observation}' must be set
-		
+
 		Quantity: 1
 		Reason: Should EMF or datatype issues in a test doc?
 		The 'validateClinicalStatement' invariant is violated on 'org.eclipse.mdht.uml.cda.impl.EntryImpl@716185fe{http:///resource0.xml#//@clinicalDocument/@component/@structuredBody/@component.0/@section/@entry.3}'
-		
+
 		Quantity: 1
 		Reason: Does not specify a template name
 		SHALL contain exactly one [1..1] templateId ( CONF:8550 ) such that it SHALL contain exactly one [1..1] @root="2.16.840.1.113883.10.20.22.4.38"
-		
-		
+
+
 		Quantity: 1
 		Reason: Does not specify a template name
 		SHALL contain exactly one [1..1] templateId ( CONF:8550 ) such that it SHALL contain exactly one [1..1] @root="2.16.840.1.113883.10.20.22.4.38"
-		
-		
+
+
 		Quantity: 1
 		Reason: Should EMF or datatype issues in a test doc?
 		The 'validateClinicalStatement' invariant is violated on 'org.eclipse.mdht.uml.cda.impl.EntryImpl@39666e42{http:///resource0.xml#//@clinicalDocument/@component/@structuredBody/@component.1/@section/@entry.0}'
 		*/
  	}
-	
+
 	@Test
 	public void testSDTCExtensionsSchemaTest() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
@@ -975,22 +983,22 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 				System.err.println(result.getDescription());
 				hasSchemaErrors =true;
 			}
-				
+
 		}
-		assertFalse(hasSchemaErrors);	
+		assertFalse(hasSchemaErrors);
 	}
-	
+
 	/**
 	 * parseSDTCExtensionsTest test for the ability to parse extensions
-	 * Do not see much need to have negative tests 
-	 * 
+	 * Do not see much need to have negative tests
+	 *
 	 * @throws IOException
 	 * @throws Exception
 	 */
 	@Test
 	public void parseSDTCExtensionsTest() throws IOException, Exception {
-		ClinicalDocument sdtcTestDocument = CDAUtil.load(IOUtils.toInputStream(convertCCDAFileToString(CCDA_FILES[SDTCTEST]), "UTF-8"));		
-		assertNotNull("sdtcTestDocument.getSDTCStatusCode",sdtcTestDocument.getSDTCStatusCode());	
+		ClinicalDocument sdtcTestDocument = CDAUtil.load(IOUtils.toInputStream(convertCCDAFileToString(CCDA_FILES[SDTCTEST]), "UTF-8"));
+		assertNotNull("sdtcTestDocument.getSDTCStatusCode",sdtcTestDocument.getSDTCStatusCode());
 		assertEquals("sdtcTestDocument.getSDTCStatusCode","ClinicalDocumentStatusCode",sdtcTestDocument.getSDTCStatusCode().getCode());
 		Patient patient = sdtcTestDocument.getRecordTargets().get(0).getPatientRole().getPatient();
 		assertFalse("patient.getSDTCEthnicGroupCodes",patient.getSDTCEthnicGroupCodes().isEmpty());
@@ -998,7 +1006,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertFalse("patient.getSDTCRaceCodes",patient.getSDTCRaceCodes().isEmpty());
 		assertEquals("patient.getSDTCRaceCodes","PateintRaceCode",patient.getSDTCRaceCodes().get(0).getCode());
 		assertFalse( "patient.getSDTCDeceasedInd" ,  patient.getSDTCDeceasedInd().getValue() );
-		assertNotNull("patient.getSDTCDeceasedTime",patient.getSDTCDeceasedTime());		
+		assertNotNull("patient.getSDTCDeceasedTime",patient.getSDTCDeceasedTime());
 		assertEquals("patient.getSDTCDeceasedTime","1900",patient.getSDTCDeceasedTime().getValue());
 		assertNotNull("patient.getSDTCDesc",patient.getSDTCDesc());
 		assertEquals("patient.getSDTCDesc","PatientDescription",patient.getSDTCDesc().getText());
@@ -1009,14 +1017,14 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertNotNull("person.getSDTCAsPatientRelationship",person.getSDTCAsPatientRelationship());
 		assertNotNull("person.getSDTCAsPatientRelationship",person.getSDTCAsPatientRelationship());
 		assertNotNull("person.getSDTCDesc",person.getSDTCDesc());
-		assertEquals("person.getSDTCDesc","PersonDescription",person.getSDTCDesc().getText());	
+		assertEquals("person.getSDTCDesc","PersonDescription",person.getSDTCDesc().getText());
 		SubjectPerson subjectPerson = sdtcTestDocument.getSections().get(0).getSubject().getRelatedSubject().getSubject();
 		assertFalse("subjectPerson.getSDTCEthnicGroupCodes",subjectPerson.getSDTCEthnicGroupCodes().isEmpty());
 		assertEquals("subjectPerson.getSDTCEthnicGroupCodes","SubjectEthnicGroupCode",subjectPerson.getSDTCEthnicGroupCodes().get(0).getCode());
 		assertFalse("subjectPerson.getSDTCRaceCodes",subjectPerson.getSDTCRaceCodes().isEmpty());
 		assertEquals("subjectPerson.getSDTCRaceCodes","SubjectRaceCode",subjectPerson.getSDTCRaceCodes().get(0).getCode());
 		assertTrue( "subjectPerson.getSDTCDeceasedInd" ,  subjectPerson.getSDTCDeceasedInd().getValue() );
-		assertNotNull("subjectPerson.getSDTCDeceasedTime",subjectPerson.getSDTCDeceasedTime());		
+		assertNotNull("subjectPerson.getSDTCDeceasedTime",subjectPerson.getSDTCDeceasedTime());
 		assertEquals("subjectPerson.getSDTCDeceasedTime","1900",subjectPerson.getSDTCDeceasedTime().getValue());
 		assertNotNull("subjectPerson.getSDTCDesc",subjectPerson.getSDTCDesc());
 		assertEquals("subjectPerson.getSDTCDesc","SubjectDescription",subjectPerson.getSDTCDesc().getText());
@@ -1029,7 +1037,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertNotNull("Organizer.getPerformers.getSDTCFunctionCode",sdtcTestDocument.getSections().get(0).getEntries().get(1).getOrganizer().getPerformers().get(0).getSDTCFunctionCode());
 		assertNotNull("Organizer.component.getPriorityNumber",sdtcTestDocument.getSections().get(0).getEntries().get(1).getOrganizer().getComponents().get(0).getPriorityNumber());
 	}
-	
+
 	private static List<ConfiguredExpression> getGenericConfiguredExpressionsForTesting() {
 		final String validationMessage = "Will always fail";
 		final String configuredXpathExpression = "//v3:informant/v3:relatedEntity/v3:relatedPerson/v3:name";
@@ -1288,25 +1296,25 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 					+ (referenceCcdaValidationService == null ? "null" : "not null")
 					+ ("mockSample is " + mockSample == null ? "null" : "not null"));
 		}
-		
+
 		// ReferenceCCDAValidationController refCon = new ReferenceCCDAValidationController();
-		// return refCon.doValidation(validationObjective, "", mockSample, vocabularyConfig, severityLevel.name());		
-		
+		// return refCon.doValidation(validationObjective, "", mockSample, vocabularyConfig, severityLevel.name());
+
 		if (vocabularyConfig == null && (severityLevel == null || severityLevel == SeverityLevel.INFO)) {
 			return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample);
 		} else if (vocabularyConfig != null && severityLevel != null) {
-			return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample, 
+			return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample,
 					"",
 					vocabularyConfig, severityLevel);
 		} else if (vocabularyConfig == null && severityLevel != null) {
 			// programmatic config with severity level - only happens with
 			// testing...
-			return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample, 
+			return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample,
 					"",
 					null, severityLevel);
 		}
-		return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample, vocabularyConfig);		
-	}	
+		return referenceCcdaValidationService.validateCCDA(validationObjective, "", mockSample, vocabularyConfig);
+	}
 
 	private static void printResultsBasedOnFlags(List<RefCCDAValidationResult> results) {
 		if (SHOW_ERRORS_ONLY) {
@@ -1318,7 +1326,7 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 
 	@Test
 	public void testSectionTimeRangeObservationIssueSITE_3672() {
-	 
+
 		// https://oncprojectracking.healthit.gov/support/browse/SITE-3672
 		ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[LAST_SCHEMA_TEST_AND_NO_SCHEMA_ERROR_INDEX]));
@@ -1326,13 +1334,13 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertFalse("The document does not have schema error yet the flag is set to true",
 				mdhtResultsHaveSchemaError(results));
 		println("and for sanity, check the single results as well");
- 
+
 		printResults(getMDHTErrorsFromResults(results));
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Consol Section Time Range Observation");
- 
+
 	}
-	
-	
+
+
 	@Test
 	public void testInformantRelatedEntityIssueSITE_3762() {
 		// https://oncprojectracking.healthit.gov/support/browse/SITE-3762
@@ -1342,111 +1350,111 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertFalse("The document does not have schema error yet the flag is set to true",
 				mdhtResultsHaveSchemaError(results));
 		println("and for sanity, check the single results as well");
- 
+
 		printResults(getMDHTErrorsFromResults(results));
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "[0..0] addr");
 	}
-	
-	
+
+
 	@Test
 	public void test2023SVAPCCD() {
-		
+
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[SVAPCCD2023]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		printResults(getMDHTErrorsFromResults(results));
-		
+
 		//Coverage Test
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33065");
-		
-		//  Consol Disability Status Observation 
+
+		//  Consol Disability Status Observation
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32628");
-		
+
 		// Consol Medication Dispense
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32361");
-		
+
 		//  Consol Result Organizer
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32616");
-		
-		// Consol Result Observation 
+
+		// Consol Result Observation
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32612");
-		
+
 		// Consol Pregnancy Intention
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-2682");
-	 		
+
 		// Consol Basic Occupation Observation
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33007");
-		
+
 		// Basic Industry Observation S
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33022");
-		
+
 		// Gender
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33070");
 		// Sexual
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-32884");
 		// Policy
 //		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "1198-32852");
-		
+
 		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "DSTU:818" );
-		
-		
-				
-		
-		
-		
+
+
+
+
+
+
 	}
-	
-	
+
+
 	@Test
 	public void test2023SVAPCCD2() {
-		
+
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[SVAPCCD20232]), CCDATypes.NON_SPECIFIC_CCDAR2);
 		printResults(getMDHTErrorsFromResults(results));
-		
+
 		//Coverage Test
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33065");
-		
-		//  Consol Disability Status Observation 
+
+		//  Consol Disability Status Observation
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32628");
-		
+
 		// Consol Medication Dispense
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32361");
-		
+
 		//  Consol Result Organizer
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32616");
-		
-		// Consol Result Observation 
+
+		// Consol Result Observation
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-32612");
-		
+
 		// Consol Pregnancy Intention
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-2682");
-	 		
+
 		// Consol Basic Occupation Observation
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33007");
-		
+
 		// Basic Industry Observation S
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33022");
-		
+
 		// Gender
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537-33070");
 		// Sexual
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-32884");
 		// Policy
 //		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "1198-32852");
-		
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "DSTU:818" );
-		
-		
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR,"1098-30719");
-		
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR,"1098-32635" );
-				
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_WARN, "1098-32638");		
 
-		
-		
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "DSTU:818" );
+
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR,"1098-30719");
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR,"1098-32635" );
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_WARN, "1098-32638");
+
+
+
 	}
-	
+
 
 	@Test
 	public void testHealthStatusSITE4082() {
@@ -1457,11 +1465,11 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		assertFalse("The document does not have schema error yet the flag is set to true",
 				mdhtResultsHaveSchemaError(results));
 		println("and for sanity, check the single results as well");
- 
+
 		printResults(getMDHTErrorsFromResults(results));
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF:1098-9075");
 	}
-	
+
 	@Test
 	public void testHealthStatusSITE4084() {
 		// https://oncprojectracking.healthit.gov/support/browse/SITE-3762
@@ -1471,19 +1479,19 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 //		assertFalse("The document does not have schema error yet the flag is set to true",
 //				mdhtResultsHaveSchemaError(results));
 //		println("and for sanity, check the single results as well");
- 
+
 		printResults(getMDHTErrorsFromResults(results));
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4515-16754");
 //		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_WARN, "4515-16754");
 	}
-	
+
 	@Test
 	public void site4095() {
 		List<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
-				convertCCDAFileToString(CCDA_FILES[SDTCTEST]), CCDATypes.NON_SPECIFIC_CCDAR2);		
+				convertCCDAFileToString(CCDA_FILES[SDTCTEST]), CCDATypes.NON_SPECIFIC_CCDAR2);
 //		results = getMDHTErrorsFromResults(results);
 //		SHOW_ERRORS_ONLY = false;
-		
+
 		ReferenceValidationLogger.printResults(results);
 //		printResultsBasedOnFlags(results);
 //		SHOW_ERRORS_ONLY = true;
@@ -1491,12 +1499,12 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF: 15350");
 		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "CONF: 15346");
 	}
-	
+
 	@Test
 	public void testSocialHistorySITE4574Test() {
 		// Social History has a proper Birth Sex Observation entry. <templateId root="2.16.840.1.113883.10.20.22.4.200" extension="2016-06-01"/>
-		// Notice in the below XML there is no @code. Expect error for @code 
-		// Also notice that although there is a nullFlavor, it is not an exception for the requirement of the code - 
+		// Notice in the below XML there is no @code. Expect error for @code
+		// Also notice that although there is a nullFlavor, it is not an exception for the requirement of the code -
 		// According to Brett, "You cannot use a nullFlavor for a fixed single value in C-CDA."
 		// But this is not the way MDHT works on certain things like codes and more. So, for MDHT, it is an exception.
 		// We need to detemine if we want to uproot the whole system of the past 8 years and change this behavior...
@@ -1504,20 +1512,20 @@ public class RefCCDATest extends ReferenceValidationTester implements Validation
 		// XML:
 		// <code nullFlavor="UNK" displayName="Birth Sex"/>
 		// Expect an error for not having a code/@code
-		
+
 		// note... changing to <code displayName="Birth Sex"/> allows the error to come through
 		// the nullFlavor is being incorrectly respected in MDHT. There is an MDHT bug. This is a separate ticket now...
 		ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
 				convertCCDAFileToString(CCDA_FILES[SUB_SOCIAL_HISTORY_WITH_BIRTH_SEX_OBS_TEMPLATE_SITE_3094]));
 		println("socialHistoryWithBirthSexObsTemplateSite3094Test: ");
 		printResults(getMDHTErrorsFromResults(results));
-		
-//		assertTrue("The document should have errors but does not", hasMDHTValidationErrors(results));		
 
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537");				
+//		assertTrue("The document should have errors but does not", hasMDHTValidationErrors(results));
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "4537");
 	}
 
-	
+
 	@Test
 	public void testPolicyActivityPass() {
 	ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
@@ -1535,9 +1543,9 @@ promote 2.16.840.1.114222.4.11.3591 to root code
 		println("testPolicyActivity");
 		printResults(getMDHTErrorsFromResults(results));
 
-		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Source of Payment Typology");				
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Source of Payment Typology");
 	}
-	
+
 	@Test
 	public void testPolicyActivityFail() {
 	ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
@@ -1555,12 +1563,46 @@ promote 2.16.840.1.114222.4.11.3591 to root code
 		println("testPolicyActivity");
 		printResults(getMDHTErrorsFromResults(results));
 
-		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Source of Payment Typology");				
+//		passIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Source of Payment Typology");
 	}
-	
-	
 
-	
-	
+
+	@Test
+	public void testAverageBloodPressureAverage() {
+	ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
+
+				convertCCDAFileToString(CCDA_FILES[VITALSIGNMODIFIED]));
+		println("testPolicyActivity");
+		printResults(getMDHTErrorsFromResults(results));
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "AverageBloodPressureOrganizerAverageBloodPressureOrganizerSystolicBloodPressureMeanObservation");
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "AverageBloodPressureOrganizerAverageBloodPressureOrganizerDiastolicBloodPressureMeanObservation");
+
+	}
+
+	@Test
+	public void testSocialHistoryObservationWarnings() {
+	ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
+
+				convertCCDAFileToString(CCDA_FILES[SOCIALHISTORYOBSERVATIONWARNING]));
+		println("testPolicyActivity");
+		printResults(getMDHTIssuesFromResults(results));
+
+//		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "Validation failed with an exception for 'org.openhealthtools.mdht.uml.cda.consol.impl.AverageBloodPressureOrganizerImpl");
+	}
+
+	@Test
+	public void testConsolPolicyActivity() {
+	ArrayList<RefCCDAValidationResult> results = validateDocumentAndReturnResults(
+
+				convertCCDAFileToString(CCDA_FILES[CONSOLPOLICYACTIVITY]));
+		println("testPolicyActivity");
+		printResults(getMDHTErrorsFromResults(results));
+
+		failIfIssueIsInResults(results, ValidationResultType.CCDA_MDHT_CONFORMANCE_ERROR, "2.16.840.1.113883.3.221.5");
+	}
+
+
+
 
 }

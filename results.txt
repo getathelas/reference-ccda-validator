@@ -1,0 +1,277 @@
+[MVNVM] Using maven: 3.6.3
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.sitenv:referenceccdavalidator >------------------
+[INFO] Building Reference CCDA Validator 1.1.2`
+[INFO] --------------------------------[ war ]---------------------------------
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Progress (1): 1.5 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (1.5 kB at 3.0 kB/s)
+Progress (1): 551 B                   Downloaded from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (551 B at 930 B/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 4.1 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.5 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml (1.5 kB at 9.6 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.5 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml (1.5 kB at 9.5 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 9.1 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 8.8 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 15 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 15 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 15 kB/s)
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ referenceccdavalidator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ referenceccdavalidator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ referenceccdavalidator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 37 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ referenceccdavalidator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ referenceccdavalidator ---
+[INFO] Surefire report directory: /Users/seanmuir/git/temp3/reference-ccda-validator/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sitenv.referenceccda.test.tests.RefCCDATest
+15:10:32,787 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/Users/seanmuir/git/temp3/reference-ccda-validator/target/test-classes/logback-test.xml]
+15:10:32,787 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs multiple times on the classpath.
+15:10:32,788 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [jar:file:/Users/seanmuir/.m2/repository/org/sitenv/vocabulary/codevalidator-api/latestVersion/codevalidator-api-latestVersion-tests.jar!/logback-test.xml]
+15:10:32,788 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [file:/Users/seanmuir/git/temp3/reference-ccda-validator/target/test-classes/logback-test.xml]
+15:10:32,884 |-INFO in ch.qos.logback.core.joran.action.TimestampAction - Using current interpretation time, i.e. now, as time reference.
+15:10:32,884 |-INFO in ch.qos.logback.core.joran.action.TimestampAction - Adding property to the context with key="timestamp" and value="2025-07-31" to the LOCAL scope
+15:10:32,884 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:10:32,887 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ref-logging]
+15:10:32,898 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - Archive files will be limited to [100 MB] each.
+15:10:32,904 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - No compression will be used
+15:10:32,905 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - Will use the pattern target/referenceccdaservice.-%d{yyyy-MM-dd}%i.log for the active file
+15:10:32,907 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/referenceccdaservice.-%d{yyyy-MM-dd}%i.log'.
+15:10:32,907 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - Roll-over at midnight.
+15:10:32,909 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - Setting initial period to Thu Jul 31 15:10:00 EDT 2025
+15:10:32,911 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:10:32,921 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ref-logging] - Active log file name: target/referenceccdaservice.2025-07-31.log
+15:10:32,921 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ref-logging] - File property is set to [target/referenceccdaservice.2025-07-31.log]
+15:10:32,922 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:10:32,922 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [content-logging]
+15:10:32,923 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - Archive files will be limited to [100 MB] each.
+15:10:32,923 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - No compression will be used
+15:10:32,923 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - Will use the pattern target/contentvalidator.-%d{yyyy-MM-dd}%i.log for the active file
+15:10:32,924 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/contentvalidator.-%d{yyyy-MM-dd}%i.log'.
+15:10:32,924 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - Roll-over at midnight.
+15:10:32,925 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - Setting initial period to Thu Jul 31 15:07:30 EDT 2025
+15:10:32,925 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:10:32,926 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[content-logging] - Active log file name: target/contentvalidator.2025-07-31.log
+15:10:32,926 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[content-logging] - File property is set to [target/contentvalidator.2025-07-31.log]
+15:10:32,926 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:10:32,926 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [code-logging]
+15:10:32,926 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - Archive files will be limited to [100 MB] each.
+15:10:32,927 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - No compression will be used
+15:10:32,927 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - Will use the pattern target/codevalidator.-%d{yyyy-MM-dd}%i.log for the active file
+15:10:32,928 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/codevalidator.-%d{yyyy-MM-dd}%i.log'.
+15:10:32,928 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - Roll-over at midnight.
+15:10:32,928 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - Setting initial period to Thu Jul 31 15:07:45 EDT 2025
+15:10:32,929 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:10:32,929 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[code-logging] - Active log file name: target/codevalidator.2025-07-31.log
+15:10:32,930 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[code-logging] - File property is set to [target/codevalidator.2025-07-31.log]
+15:10:32,930 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+15:10:32,931 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ASYNC]
+15:10:32,931 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to ch.qos.logback.classic.AsyncAppender[ASYNC]
+15:10:32,931 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Attaching appender named [ref-logging] to AsyncAppender.
+15:10:32,932 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Setting discardingThreshold to 102
+15:10:32,933 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [code-logging] to Logger[org.sitenv.vocabularies]
+15:10:32,933 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [content-logging] to Logger[org.sitenv.contentvalidator]
+15:10:32,933 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to Logger[org.sitenv.referenceccda]
+15:10:32,933 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+15:10:32,933 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to Logger[ROOT]
+15:10:32,934 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+15:10:32,934 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@3f200884 - Registering current configuration as safe fallback point
+JUnit version: 4.13.1
+testPolicyActivity
+Description : cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:v3":participant}'. One of '{"urn:hl7-org:v3":entryRelationship, "urn:hl7-org:v3":reference, "urn:hl7-org:v3":precondition, "urn:hl7-org:sdtc":precondition2, "urn:hl7-org:sdtc":inFulfillmentOf1}' is expected.
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : true
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : false
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Continuity Of Care Document SHALL contain  [1..1] component such that it  (CONF:9445) Conforms to Allergies Section (templateId: 2.16.840.1.113883.10.20.22.2.6.1)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Continuity Of Care Document SHALL contain  [1..1] component such that it  (CONF:9447) Conforms to Medications Section (templateId: 2.16.840.1.113883.10.20.22.2.1.1)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Continuity Of Care Document SHALL contain  [1..1] component such that it  (CONF:9449) Conforms to Problem Section (templateId: 2.16.840.1.113883.10.20.22.2.5.1)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Continuity Of Care Document SHALL contain  [1..1] component such that it  (CONF:9451) Conforms to Procedures Section (templateId: 2.16.840.1.113883.10.20.22.2.7.1)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Continuity Of Care Document SHALL contain  [1..1] component such that it  (CONF:9453) Conforms to Results Section (templateId: 2.16.840.1.113883.10.20.22.2.3.1)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Encounters Section (entries required) (V3) If section/@nullFlavor is not present, SHALL contain  [1..*] entry such that it  (CONF:1198-8709, CONF:1198-15468) Conforms to Encounter Activity (V3) (templateId: 2.16.840.1.113883.10.20.22.4.49:2015-08-01)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Family History Organizer SHALL contain exactly one [1..1] subject, where its type is Subject (CONF:8609, R2.1=CONF:1198-8609) each SHALL contain exactly one [1..1] relatedSubject, where  (CONF:15244, R2.1=CONF:1198-15244) each SHOULD contain zero or one [0..1] subject, where  (CONF:15248, R2.1=CONF:1198-15248) subject SHALL contain exactly one [1..1] administrativeGenderCode (CONF:15974, R2.1=CONF:1198-15974), which SHALL be selected from ValueSet Administrative Gender (HL7 V3) 2.16.840.1.113883.1.11.1 DYNAMIC (CONF:15975, R2.1=CONF:1198-15975)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Severity Observation2 SHALL contain exactly one [1..1] value with @xsi:type="CD", which SHALL be selected from ValueSet Reaction Severity 2.16.840.1.113883.3.88.12.3221.6.8 STATIC 20170915 (CONF:NEW, formerlyCONF:1098-7356, DSTU:835)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Medication Activity2 MAY contain zero or one [0..1] administrationUnitCode, which SHALL be selected from ValueSet AdministrationUnitDoseForm 2.16.840.1.113762.1.4.1021.30 DYNAMIC (CONF:1098-7519)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Medication Dispense V4 SHALL contain exactly one [1..1] code (CONF:4537-32974), which SHALL be selected from ValueSet MedicationDispesnseStatusVS 2.16.840.1.113883.4.642.3.1312 STATIC
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Activity (V3) entryRelationship with target entry Instruction2 SHALL contain exactly one [1..1] @inversionInd="true" True (CONF:1198-8858)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Medication Information2 SHALL contain exactly one [1..1] manufacturedMaterial, where its type is Immunization Medication Information Manufactured Material (CONF:1098-9006) manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set 2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Medication Information2 SHALL contain exactly one [1..1] manufacturedMaterial, where its type is Immunization Medication Information Manufactured Material (CONF:1098-9006) manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set 2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Medication Information2 SHALL contain exactly one [1..1] manufacturedMaterial, where its type is Immunization Medication Information Manufactured Material (CONF:1098-9006) manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set 2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Medication Information2 SHALL contain exactly one [1..1] manufacturedMaterial, where its type is Immunization Medication Information Manufactured Material (CONF:1098-9006) manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set 2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Immunization Medication Information2 SHALL contain exactly one [1..1] manufacturedMaterial, where its type is Immunization Medication Information Manufactured Material (CONF:1098-9006) manufacturedMaterial SHALL contain exactly one [1..1] code, which SHALL be selected from ValueSet CVX Vaccines Administered - Vaccine Set 2.16.840.1.113762.1.4.1010.6 DYNAMIC (CONF:1098-9007)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Policy Activity V4 SHALL contain exactly one [1..1] code, which SHALL be selected from (CodeSystem: 2.16.840.1.113883.3.221.5 Source of Payment Typology (PHDSC))
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Procedure Activity Procedure2 SHOULD contain zero or more [0..*] targetSiteCode (CONF:1098-7683), which SHALL be selected from ValueSet Body Site 2.16.840.1.113883.3.88.12.3221.8.9 DYNAMIC (CONF:1098-16082)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : A compatible R1.1 templateId without an extension must be included in addition to the existing R2.1 templateId with an extension for Result Observation (V3) 2.16.840.1.113883.10.20.22.4.2:2015-08-01. When asserting this templateId, all C-CDA R2.1 document, section, and entry templates that had a previous version in C-CDA R1.1 SHALL include both the C-CDA R2.1 templateId and the C-CDA R1.1 templateId root without an extension. See C-CDA R2.1 Volume 1 - Design Considerations for additional detail (CONF:1198-32936, CONF:1198-32934, DSTU:757, DSTU:781).
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Patient Referral Act SHALL contain exactly one [1..1] @classCode="PCPR"  (CodeSystem: 2.16.840.1.113883.5.6 HL7ActClass) (CONF:1098-30884)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+Description : Consol Patient Referral Act MAY contain zero or more [0..*] entryRelationship, where its type is Entry Relationship (CONF:1098-31604) each SHALL contain exactly one [1..1] observation, where  (CONF:1098-31605) observation SHALL contain exactly one [1..1] @moodCode="RQO"  (CodeSystem: 2.16.840.1.113883.5.1001 HL7ActMood) (CONF:1098-31607)
+Type : CCDA_MDHT_CONFORMANCE_ERROR
+result.isSchemaError() : false
+result.isDataTypeSchemaError() : false
+result.isIGIssue() : true
+result.isMUIssue() : false
+result.isDS4PIssue() : false
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.221 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.273 s
+[INFO] Finished at: 2025-07-31T15:10:37-04:00
+[INFO] ------------------------------------------------------------------------

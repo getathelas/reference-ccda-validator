@@ -1,0 +1,123 @@
+[MVNVM] Using maven: 3.6.3
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.sitenv:referenceccdavalidator >------------------
+[INFO] Building Reference CCDA Validator 1.1.2`
+[INFO] --------------------------------[ war ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml
+Progress (1): 1.5 kBProgress (2): 1.5 kB | 551 B                            Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (1.5 kB at 2.4 kB/s)
+Downloaded from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/emf/org.eclipse.emf.common/maven-metadata.xml (551 B at 795 B/s)
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.emf.runtime/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 3.9 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.5 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.vocab/3.0.0-SNAPSHOT/maven-metadata.xml (1.5 kB at 9.4 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.5 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.datatypes/3.0.0-SNAPSHOT/maven-metadata.xml (1.5 kB at 8.9 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.hl7.rim/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 8.9 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.eclipse.mdht.uml.cda/3.0.0-SNAPSHOT/maven-metadata.xml (1.4 kB at 8.0 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.consol2/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 14 kB/s)
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/hl7/security/ds4p/org.hl7.security.ds4p.contentprofile/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 15 kB/s)
+Downloading from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml
+Downloading from eclipse: https://repo.eclipse.org/content/groups/releases/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml
+Progress (1): 2.3 kB                    Downloaded from mdix: https://mdix.jfrog.io/artifactory/mdmiartifactory/org/eclipse/mdht/org.openhealthtools.mdht.uml.cda.mu2consol/3.0.0-SNAPSHOT/maven-metadata.xml (2.3 kB at 15 kB/s)
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ referenceccdavalidator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ referenceccdavalidator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ referenceccdavalidator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 37 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ referenceccdavalidator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ referenceccdavalidator ---
+[INFO] Surefire report directory: /Users/seanmuir/git/temp3/reference-ccda-validator/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.sitenv.referenceccda.test.tests.RefCCDATest
+15:22:01,140 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [file:/Users/seanmuir/git/temp3/reference-ccda-validator/target/test-classes/logback-test.xml]
+15:22:01,141 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs multiple times on the classpath.
+15:22:01,141 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [jar:file:/Users/seanmuir/.m2/repository/org/sitenv/vocabulary/codevalidator-api/latestVersion/codevalidator-api-latestVersion-tests.jar!/logback-test.xml]
+15:22:01,141 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback-test.xml] occurs at [file:/Users/seanmuir/git/temp3/reference-ccda-validator/target/test-classes/logback-test.xml]
+15:22:01,268 |-INFO in ch.qos.logback.core.joran.action.TimestampAction - Using current interpretation time, i.e. now, as time reference.
+15:22:01,268 |-INFO in ch.qos.logback.core.joran.action.TimestampAction - Adding property to the context with key="timestamp" and value="2025-07-31" to the LOCAL scope
+15:22:01,269 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:22:01,273 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ref-logging]
+15:22:01,287 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - Archive files will be limited to [100 MB] each.
+15:22:01,296 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - No compression will be used
+15:22:01,298 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1484531981 - Will use the pattern target/referenceccdaservice.-%d{yyyy-MM-dd}%i.log for the active file
+15:22:01,300 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/referenceccdaservice.-%d{yyyy-MM-dd}%i.log'.
+15:22:01,300 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - Roll-over at midnight.
+15:22:01,303 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@2bea5ab4 - Setting initial period to Thu Jul 31 15:17:39 EDT 2025
+15:22:01,306 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:22:01,320 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ref-logging] - Active log file name: target/referenceccdaservice.2025-07-31.log
+15:22:01,320 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[ref-logging] - File property is set to [target/referenceccdaservice.2025-07-31.log]
+15:22:01,321 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:22:01,321 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [content-logging]
+15:22:01,322 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - Archive files will be limited to [100 MB] each.
+15:22:01,322 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - No compression will be used
+15:22:01,322 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@2023938592 - Will use the pattern target/contentvalidator.-%d{yyyy-MM-dd}%i.log for the active file
+15:22:01,323 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/contentvalidator.-%d{yyyy-MM-dd}%i.log'.
+15:22:01,323 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - Roll-over at midnight.
+15:22:01,324 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@dd3b207 - Setting initial period to Thu Jul 31 15:15:55 EDT 2025
+15:22:01,325 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:22:01,326 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[content-logging] - Active log file name: target/contentvalidator.2025-07-31.log
+15:22:01,326 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[content-logging] - File property is set to [target/contentvalidator.2025-07-31.log]
+15:22:01,326 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+15:22:01,326 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [code-logging]
+15:22:01,327 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - Archive files will be limited to [100 MB] each.
+15:22:01,327 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - No compression will be used
+15:22:01,327 |-INFO in c.q.l.core.rolling.SizeAndTimeBasedRollingPolicy@1427889191 - Will use the pattern target/codevalidator.-%d{yyyy-MM-dd}%i.log for the active file
+15:22:01,328 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - The date pattern is 'yyyy-MM-dd' from file name pattern 'target/codevalidator.-%d{yyyy-MM-dd}%i.log'.
+15:22:01,328 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - Roll-over at midnight.
+15:22:01,328 |-INFO in ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP@58fdd99 - Setting initial period to Thu Jul 31 15:16:11 EDT 2025
+15:22:01,329 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+15:22:01,330 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[code-logging] - Active log file name: target/codevalidator.2025-07-31.log
+15:22:01,330 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[code-logging] - File property is set to [target/codevalidator.2025-07-31.log]
+15:22:01,330 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.classic.AsyncAppender]
+15:22:01,332 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [ASYNC]
+15:22:01,332 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to ch.qos.logback.classic.AsyncAppender[ASYNC]
+15:22:01,332 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Attaching appender named [ref-logging] to AsyncAppender.
+15:22:01,334 |-INFO in ch.qos.logback.classic.AsyncAppender[ASYNC] - Setting discardingThreshold to 102
+15:22:01,334 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [code-logging] to Logger[org.sitenv.vocabularies]
+15:22:01,335 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [content-logging] to Logger[org.sitenv.contentvalidator]
+15:22:01,335 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to Logger[org.sitenv.referenceccda]
+15:22:01,335 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+15:22:01,335 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [ref-logging] to Logger[ROOT]
+15:22:01,335 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+15:22:01,336 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@3f200884 - Registering current configuration as safe fallback point
+JUnit version: 4.13.1
+basicErrorFreeRegressionTest: 
+There are no results to print as the list is empty.
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.377 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.103 s
+[INFO] Finished at: 2025-07-31T15:22:06-04:00
+[INFO] ------------------------------------------------------------------------
