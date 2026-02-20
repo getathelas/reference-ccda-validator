@@ -1,0 +1,7 @@
+containers:
+  - name: reference-ccda-validator
+    project_dir: .
+    dockerfile: Dockerfile
+    build_context: .
+    image_target: ""
+

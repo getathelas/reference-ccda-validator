@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  reference-ccda-validator:
+    container_name: reference-ccda-validator
+    image: reference-ccda-validator:local
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./validator/configs:/validator/configs:ro
+      - ./validator/vocabulary:/validator/vocabulary:ro
+      - ./validator/scenarios:/validator/scenarios:ro
+    environment:
+      - JAVA_OPTS=-Xms1g -Xmx5g
+    restart: unless-stopped
+

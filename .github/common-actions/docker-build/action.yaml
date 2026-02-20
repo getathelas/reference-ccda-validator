@@ -1,0 +1,255 @@
+name: "Docker Build"
+description: "A simple composite action to build a container and push to GCP Artifact Registry (GAR)"
+
+inputs:
+  runner:
+    description: "Runner to use for the job"
+    required: false
+    default: "ubuntu-latest"
+
+  job_name:
+    description: "Job display name"
+    required: true
+
+  project_dir:
+    description: "Project directory to build from"
+    required: true
+
+  force_build:
+    description: "Force a build even if files have not changed"
+    required: false
+    default: "false"
+
+  dockerfile:
+    description: "Dockerfile name"
+    required: false
+    default: "Dockerfile"
+
+  build_context:
+    description: "Build context directory relative to project_dir"
+    required: false
+    default: "."
+
+  image_target:
+    description: "The container image target"
+    required: true
+
+  cache_scope:
+    description: "Cache scope for build cache"
+    required: true
+
+  gar_registry:
+    description: "Google Artifact Registry hostname (e.g. us-central1-docker.pkg.dev)"
+    required: true
+
+  gar_repository:
+    description: "Repository path in GAR"
+    required: true
+
+  publish_image:
+    description: "Whether to publish the image"
+    required: false
+    default: "false"
+
+  ssh_key:
+    description: "SSH private key for accessing private repositories"
+    required: false
+    default: ""
+
+outputs:
+  image_uri:
+    description: "Built image URI with SHA tag"
+    value: ${{ steps.output-image-uri.outputs.image_uri }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Detect changes
+      id: detect
+      uses: tj-actions/changed-files@v46
+      if: ${{ inputs.force_build != 'true' }}
+      with:
+        files: |
+          ${{ inputs.project_dir }}/**
+          ${{ inputs.project_dir }}/*
+
+    - name: Decide whether to build
+      id: should-build
+      shell: bash
+      run: |
+        if [[ "${{ inputs.force_build }}" == "true" ]]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        elif [[ "${{ steps.detect.outputs.all_changed_files_count || '0' }}" != "0" ]]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Stop early if no changes
+      if: ${{ steps.should-build.outputs.changed != 'true' }}
+      shell: bash
+      run: |
+        echo "No changes detected in ${{ inputs.project_dir }}, skipping build."
+
+    - name: Authenticate to Google Cloud
+      id: auth
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      uses: google-github-actions/auth@v2
+      with:
+        create_credentials_file: "true"
+        project_id: athelas-rcm
+        workload_identity_provider: "projects/1075411902488/locations/global/workloadIdentityPools/github-actions/providers/github-actions"
+
+    - name: Set up Cloud SDK
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      uses: google-github-actions/setup-gcloud@v3
+
+    - name: Configure Docker for GAR
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      shell: bash
+      run: gcloud auth configure-docker us-central1-docker.pkg.dev
+
+    - name: Check if image repository has existing images
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      id: check-existing-images
+      shell: bash
+      env:
+        IMAGE_URI: ${{ inputs.gar_registry }}/${{ inputs.gar_repository }}
+      run: |
+        EXISTING_IMAGE=$(gcloud artifacts docker images list "$IMAGE_URI" --limit=1 --format="value(package)" 2>/dev/null || true)
+        
+        if [[ -z "$EXISTING_IMAGE" ]]; then
+          echo "No existing images found! This is the origin build."
+          echo "is_origin_build=true" >> $GITHUB_OUTPUT
+        else
+          echo "Found existing image(s)"
+          echo "is_origin_build=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: 🔐 Configure SSH for Docker build
+      if: ${{ steps.should-build.outputs.changed == 'true' && inputs.ssh_key != '' }}
+      shell: bash
+      env:
+        GIT_SSH_KEY: ${{ inputs.ssh_key }}
+      run: |
+        # Set up SSH directory and key
+        mkdir -p ~/.ssh
+        echo "$GIT_SSH_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+
+        # Preload GitHub's host keys to avoid the prompt
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+        # Start SSH agent and add key for Docker build
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+
+        # Export SSH_AUTH_SOCK so it persists to next steps
+        echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> $GITHUB_ENV
+        echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> $GITHUB_ENV
+
+        # Force SSH for github.com
+        git config --global url."ssh://git@github.com/".insteadOf "https://github.com/"
+
+    - name: Set up Docker Buildx
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      uses: docker/setup-buildx-action@v3
+      with:
+        driver-opts: |
+          image=us-central1-docker.pkg.dev/athelas-rcm/athelas-docker-proxy/moby/buildkit:buildx-stable-1
+          network=host
+
+    - name: Setup just
+      uses: extractions/setup-just@v3
+
+    - name: Check if python Repository
+      id: python-version
+      shell: bash
+      run: |
+        if [[ -f "${{ inputs.project_dir }}/pyproject.toml" ]]; then
+          echo "This is a Python project."
+          cd "${{ inputs.project_dir }}"
+          PYTHON_VERSION=$(just pyver 2>/dev/null)
+          echo "python_version=$PYTHON_VERSION" >> $GITHUB_OUTPUT
+        else
+          echo "This is not a Python project."
+        fi
+
+    - name: Build and optionally push Docker image
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      id: docker-build
+      shell: bash
+      working-directory: ${{ inputs.project_dir }}
+      env:
+        IMAGE_URI: ${{ inputs.gar_registry }}/${{ inputs.gar_repository }}
+        PUBLISH_IMAGE: ${{ inputs.publish_image }}
+      run: |
+        set -eux
+
+        export SHORT_SHA=${GITHUB_SHA::7}
+        export IMAGE_VERSION=$(date -u +%Y.%m.%d-%H%M%S)
+        export FULL_IMAGE_VERSION=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+        export GAR_USERNAME=oauth2accesstoken
+        export GAR_PASSWORD=$(gcloud auth print-access-token)
+
+        echo "=== Pruning docker ==="
+        docker system prune -a -f
+
+        echo "=== Available space before build ==="
+        df -h
+
+        BUILD_FLAGS=(
+          --platform linux/amd64
+          --file "${{ inputs.dockerfile }}"
+          --build-arg COMMIT_SHA=${GITHUB_SHA}
+          --build-arg IMAGE_VERSION="$FULL_IMAGE_VERSION"
+          --secret id=gar_username,env=GAR_USERNAME
+          --secret id=gar_password,env=GAR_PASSWORD
+          --secret id=gcpcreds,src=${{ steps.auth.outputs.credentials_file_path }}
+          --label "org.opencontainers.image.created=$FULL_IMAGE_VERSION"
+          --cache-from type=gha,scope=${{ inputs.cache_scope }}
+          --cache-to type=gha,mode=max,scope=${{ inputs.cache_scope }}
+          --tag "$IMAGE_URI:${GITHUB_SHA}"
+          --tag "$IMAGE_URI:$IMAGE_VERSION"
+        )
+
+        # Add --target flag only if image_target is specified
+        if [[ -n "${{ inputs.image_target }}" ]]; then
+          BUILD_FLAGS+=(--target "${{ inputs.image_target }}")
+        fi
+
+        # Add "origin" tag if this is the first build. This helps bootstrap argocd-image-updater.
+        if [[ "${{ steps.check-existing-images.outputs.is_origin_build }}" == "true" ]]; then
+          BUILD_FLAGS+=(--tag "$IMAGE_URI:origin")
+        fi
+
+        if [[ -n "${{ steps.python-version.outputs.python_version }}" ]]; then
+          BUILD_FLAGS+=(
+            --build-arg PYTHON_VERSION=${{ steps.python-version.outputs.python_version }}
+          )
+        fi
+
+        # Add SSH agent if SSH key is provided
+        if [[ -n "${{ inputs.ssh_key }}" ]]; then
+          BUILD_FLAGS+=(--ssh default)
+        fi
+
+        if [[ "$PUBLISH_IMAGE" == "true" ]]; then
+          BUILD_FLAGS+=(--push)
+        fi
+
+        docker buildx build "${BUILD_FLAGS[@]}" ${{ inputs.build_context }}
+
+        echo "=== Available space after build ==="
+        df -h
+
+    - name: Output image URI
+      if: ${{ steps.should-build.outputs.changed == 'true' }}
+      id: output-image-uri
+      shell: bash
+      run: |
+        echo "image_uri=${{ inputs.gar_registry }}/${{ inputs.gar_repository }}:${{ github.sha }}" >> $GITHUB_OUTPUT
+
