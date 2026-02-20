@@ -61,7 +61,7 @@ jobs:
     name: Build ${{ matrix.service.name }}
     needs: prepare-matrix
     if: needs.prepare-matrix.outputs.matrix != '{"service":[]}'
-    runs-on: athelas-rops-2c4g
+    runs-on: ubuntu-latest
     environment: ${{ github.event.ref == 'refs/heads/master' && 'gcp-artifacts-rw' || 'gcp-artifacts-ro' }}
     strategy:
       fail-fast: false
