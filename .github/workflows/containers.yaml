@@ -62,7 +62,7 @@ jobs:
     needs: prepare-matrix
     if: needs.prepare-matrix.outputs.matrix != '{"service":[]}'
     runs-on: athelas-rops-2c4g
-    environment: ${{ github.event.ref == 'refs/heads/main' && 'gcp-artifacts-rw' || 'gcp-artifacts-ro' }}
+    environment: ${{ github.event.ref == 'refs/heads/master' && 'gcp-artifacts-rw' || 'gcp-artifacts-ro' }}
     strategy:
       fail-fast: false
       matrix: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}
@@ -79,6 +79,6 @@ jobs:
           cache_scope: main
           gar_repository: ${{ matrix.service.name }}
           gar_registry: us-central1-docker.pkg.dev/athelas-rcm/norm
-          publish_image: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+          publish_image: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
           ssh_key: ${{ secrets.COMMURE_LIBRARY_SECRET }}
 
