@@ -8,3 +8,6 @@
 /src/main/profiles/local/
 /bin
 /reference-ccda-api
+
+# Validator data (configs, vocabulary, scenarios) – populated by scripts or locally
+/validator/
