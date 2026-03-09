@@ -16,7 +16,6 @@ Save a backup of this completed configuration file
     <Parameter name="referenceccda.isDynamicVocab" value="false" override="true"/>
     <Parameter name="referenceccda.configFolder" value="/validator/configs" override="true"/>
     <Parameter name="content.scenariosDir" value="/validator/scenarios" override="true"/>
-    <Parameter name="content.scenariosDir" value="path/to/your/scenarios_directory" override="true"/>
 
     <Parameter name="keycloak.enabled" value="false" override="true"/>
 
