@@ -12,6 +12,9 @@ COPY referenceccdaservice.war /usr/local/tomcat/webapps/referenceccdaservice.war
 #    It MUST live under conf/Catalina/localhost/ for the default engine/host.
 COPY configuration/referenceccdaservice.xml /usr/local/tomcat/conf/Catalina/localhost/referenceccdaservice.xml
 
+COPY validator/configs /validator/configs
+COPY validator/scenarios /validator/scenarios
+
 # 3) (Optional but recommended) increase heap for the in-memory vocab DB
 #    They suggest ~5GB. Tune to your environment.
 ENV JAVA_OPTS="-Xms1g -Xmx5g"
