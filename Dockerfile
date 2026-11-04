@@ -1,5 +1,6 @@
-# Tomcat 8.5 with JDK 8 (matches their “Tomcat 8.5 + Java 8 only” requirement)
-FROM tomcat:8.5-jdk8-temurin
+# Tomcat 9.0 with JDK 8. Upstream targets Tomcat 8.5 + Java 8, but 8.5 is EOL
+# (its image stopped being rebuilt in Mar 2024). 9.0 keeps the javax.* Servlet API.
+FROM tomcat:9.0-jdk8-temurin
 
 # Optional: remove default webapps (docs, manager, etc.)
 RUN rm -rf /usr/local/tomcat/webapps/*
